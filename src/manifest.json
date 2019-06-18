@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Jobcan Adjustor",
+  "short_name": "JCA",
+  "version": "0.1.0",
+  "description": "Adjusts breaking time for your monthly attendances",
+  "icons": {
+    "128": "assets/icon.png"
+  },
+  "author": "ryz310@gmail.com",
+  "content_scripts": [
+    {
+      "matches": ["https://ssl.jobcan.jp/employee/attendance/edit"],
+      "js": [
+        "js/adjustor.js"
+      ]
+    }
+  ]
+}
