@@ -1,6 +1,6 @@
 const adjustSchedule = (e) => {
-  const selector = 'td.edit div.editable input[type=text], td.edit div.editable textarea';
-  fields = document.querySelectorAll(selector);
+  const selector = 'td div.editable input[type=text], td div.editable textarea';
+  const fields = document.querySelectorAll(selector);
   let i = 0;
   while (i < fields.length) {
     if (fields[i + 4].value == "01:30") {
@@ -13,25 +13,19 @@ const adjustSchedule = (e) => {
   }
 }
 
-const generateAdjustButton = () => {
-  const adjustButton = document.createElement('div');
-  adjustButton.classList.add('btn');
-  adjustButton.classList.add('btn-mini');
-  adjustButton.classList.add('btn-primary');
-  adjustButton.innerText = '休憩時間調整';
-  adjustButton.addEventListener('click', adjustSchedule);
-  return adjustButton;
-}
-
-const generateContainer = (child) => {
-  const container = document.createElement('td');
-  container.appendChild(child);
-  return container;
+const generateAdjusterButton = () => {
+  const adjusterButton = document.createElement('div');
+  adjusterButton.classList.add('ml-1');
+  adjusterButton.classList.add('btn');
+  adjusterButton.classList.add('jbc-btn-outline-primary');
+  adjusterButton.innerText = '休憩時間調整';
+  adjusterButton.addEventListener('click', adjustSchedule);
+  return adjusterButton;
 }
 
 (() => {
-  const adjustButton = generateAdjustButton();
-  const container = generateContainer(adjustButton);
-  const target = document.querySelector('#wrap-management-page > div.contents-wrap-middle > table > tbody > tr');
-  target.appendChild(container);
+  const adjusterButton = generateAdjusterButton();
+  const parent = document.querySelector('#search-result > form > div.card-header.jbc-card-header.d-flex.justify-content-between > div:nth-child(2)');
+  const reference = document.querySelector('#search-result > form > div.card-header.jbc-card-header.d-flex.justify-content-between > div:nth-child(2) > div');
+  parent.insertBefore(adjusterButton, reference);
 })();
