@@ -23,15 +23,9 @@ const generateAdjustButton = () => {
   return adjustButton;
 }
 
-const generateContainer = (child) => {
-  const container = document.createElement('td');
-  container.appendChild(child);
-  return container;
-}
-
 (() => {
   const adjustButton = generateAdjustButton();
-  const container = generateContainer(adjustButton);
-  const target = document.querySelector('#wrap-management-page > div.contents-wrap-middle > table > tbody > tr');
-  target.appendChild(container);
+  const parent = document.querySelector('#search-result > form > div.card-header.jbc-card-header.d-flex.justify-content-between > div:nth-child(2)');
+  const reference = document.querySelector('#search-result > form > div.card-header.jbc-card-header.d-flex.justify-content-between > div:nth-child(2) > div');
+  parent.insertBefore(adjustButton, reference);
 })();
