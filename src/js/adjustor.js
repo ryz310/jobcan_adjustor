@@ -1,6 +1,6 @@
 const adjustSchedule = (e) => {
-  const selector = 'td.edit div.editable input[type=text], td.edit div.editable textarea';
-  fields = document.querySelectorAll(selector);
+  const selector = 'td div.editable input[type=text], td div.editable textarea';
+  const fields = document.querySelectorAll(selector);
   let i = 0;
   while (i < fields.length) {
     if (fields[i + 4].value == "01:30") {
