@@ -15,9 +15,9 @@ const adjustSchedule = (e) => {
 
 const generateAdjustButton = () => {
   const adjustButton = document.createElement('div');
+  adjustButton.classList.add('ml-1');
   adjustButton.classList.add('btn');
-  adjustButton.classList.add('btn-mini');
-  adjustButton.classList.add('btn-primary');
+  adjustButton.classList.add('jbc-btn-outline-primary');
   adjustButton.innerText = '休憩時間調整';
   adjustButton.addEventListener('click', adjustSchedule);
   return adjustButton;
